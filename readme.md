@@ -1,5 +1,7 @@
 # Crawler
 
+[![Build Status](https://travis-ci.org/dermotmburke/crawler.svg?branch=master)](https://travis-ci.org/dermotmburke/crawler)
+
 ## Description
 
 This application will visit all pages within a given domain (e.g. http://www.monzo.com) and print a JSON representation of the links between the site's pages.
