@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'com.google.cloud.tools.jib' version '0.10.1'
+	id 'application'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'com.github.dermotmburke.crawler.Main'
+
+repositories {
+	mavenCentral()
+}
+
+jib{
+	to{
+		auth {
+			username = dockerHubUsername
+			password = dockerHubPassword
+		}
+		image = 'dermotmburke/crawler'
+	}
+}
+
+
+
+dependencies {
+	compile('org.jsoup:jsoup:1.11.3')
+	compile('com.google.code.gson:gson:2.8.5')
+	compile('ch.qos.logback:logback-classic:1.0.13')
+	testCompile('org.eclipse.jetty:jetty-server:9.4.14.v20181114')
+	testCompile('org.junit.jupiter:junit-jupiter-api:5.2.0')
+	testCompile('org.assertj:assertj-core:3.11.1')
+	testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+	testCompile('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+}
